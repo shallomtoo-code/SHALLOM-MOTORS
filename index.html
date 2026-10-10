@@ -1,387 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SHALLOM MOTORS | Find Your Dream Car</title>
-  <meta name="description" content="Discover quality cars at SHALLOM MOTORS. Find your next car in Kenya.">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHALLOM MOTORS | Find Your Dream Car</title>
+<meta name="description" content="Discover cars for sale at SHALLOM MOTORS. Find your next car in Kenya.">
 
-    body {
-      font-family: Arial, sans-serif;
-      color: #20242c;
-      background: #f5f6f8;
-      line-height: 1.6;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    header {
-      background: #10151f;
-      color: white;
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6fa;
+  color: #202638;
+  line-height: 1.6;
+}
 
-    .logo span {
-      color: #ff4d4d;
-    }
+header {
+  background: #101522;
+  color: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 14px;
-    }
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
 
-    .hero {
-      background: linear-gradient(90deg, #10151f, #303c50);
-      color: white;
-      padding: 75px 7%;
-      display: flex;
-      align-items: center;
-      gap: 35px;
-      flex-wrap: wrap;
-    }
+.logo span {
+  color: #ff493f;
+}
 
-    .hero-content {
-      flex: 1 1 300px;
-    }
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-    .hero h1 {
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
 
-    .hero p {
-      color: #d5dbe5;
-      margin-bottom: 28px;
-    }
+nav a:hover {
+  color: #ff493f;
+}
 
-    .hero img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 12px;
-      object-fit: cover;
-      flex: 1 1 280px;
-    }
+.hero {
+  background: linear-gradient(110deg, #101522 15%, #203c5b 100%);
+  color: white;
+  padding: 75px 7%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 35px;
+}
 
-    .btn {
-      display: inline-block;
-      background: #e63946;
-      color: white;
-      padding: 13px 22px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
+.hero h1 {
+  font-size: clamp(32px, 4vw, 53px);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
 
-    .section {
-      padding: 55px 7%;
-    }
+.hero h1 span {
+  color: #ff493f;
+}
 
-    .section h2 {
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
+.hero p {
+  color: #e0e5ef;
+  margin-bottom: 25px;
+}
 
-    .intro {
-      color: #687080;
-      margin-bottom: 25px;
-    }
+.hero img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+}
 
-    .search {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 25px 0;
-    }
+.btn {
+  display: inline-block;
+  background: #ff493f;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .search input,
-    .search select {
-      flex: 1 1 180px;
-      padding: 13px;
-      border: 1px solid #d7dbe2;
-      border-radius: 6px;
-      background: white;
-      font-size: 15px;
-    }
+.btn:hover {
+  background: #d9342c;
+}
 
-    .cars {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-    }
+.btn-dark {
+  background: #101522;
+}
 
-    .car-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 18px #17203312;
-    }
+.section {
+  padding: 55px 7%;
+}
 
-    .car-card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      display: block;
-    }
+.section-heading {
+  margin-bottom: 25px;
+}
 
-    .car-info {
-      padding: 20px;
-    }
+.section-heading h2 {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
 
-    .car-info h3 {
-      margin-bottom: 8px;
-      font-size: 20px;
-    }
+.section-heading p {
+  color: #697386;
+}
 
-    .details {
-      color: #687080;
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 35px;
+}
 
-    .price {
-      color: #d92738;
-      font-size: 21px;
-      font-weight: bold;
-      margin-bottom: 16px;
-    }
+.feature {
+  background: white;
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px #1015220d;
+}
 
-    .car-info .btn {
-      width: 100%;
-      text-align: center;
-    }
+.feature h3 {
+  margin-bottom: 5px;
+}
 
-    .about {
-      background: white;
-      border-radius: 12px;
-      padding: 28px;
-    }
+.feature p {
+  color: #697386;
+  font-size: 14px;
+}
 
-    footer {
-      background: #10151f;
-      color: #d5dbe5;
-      padding: 35px 7%;
-      text-align: center;
-    }
+.search-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
 
-    footer a {
-      color: white;
-    }
+.search-box input,
+.search-box select {
+  flex: 1;
+  min-width: 180px;
+  padding: 13px;
+  border: 1px solid #d5dbe5;
+  border-radius: 6px;
+  background: white;
+  font-size: 15px;
+}
 
-    .notice {
-      background: #fff4d8;
-      color: #644b0b;
-      padding: 12px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
 
-    @media (max-width: 600px) {
-      header {
-        padding: 18px 5%;
-      }
+.car-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px #10152212;
+  transition: transform 0.2s;
+}
 
-      nav a {
-        margin-left: 0;
-        margin-right: 12px;
-      }
+.car-card:hover {
+  transform: translateY(-5px);
+}
 
-      .hero,
-      .section {
-        padding: 38px 5%;
-      }
-    }
-  </style>
+.car-card img {
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+  display: block;
+}
+
+.car-info {
+  padding: 19px;
+}
+
+.car-info h3 {
+  font-size: 19px;
+  margin-bottom: 7px;
+}
+
+.car-info p {
+  color: #697386;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.price {
+  color: #e83f35;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+.car-info .btn {
+  width: 100%;
+  text-align: center;
+}
+
+.no-results {
+  padding: 30px;
+  text-align: center;
+  color: #697386;
+  grid-column: 1 / -1;
+}
+
+.about {
+  background: white;
+}
+
+.about-content {
+  max-width: 850px;
+}
+
+.about-content p {
+  margin: 12px 0;
+  color: #596274;
+}
+
+.contact {
+  background: #101522;
+  color: white;
+  text-align: center;
+}
+
+.contact p {
+  margin: 10px 0 20px;
+  color: #d8deea;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+footer {
+  background: #090d16;
+  color: #cbd2df;
+  text-align: center;
+  padding: 22px;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .car-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 580px) {
+  header {
+    padding: 18px 5%;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  .hero,
+  .section {
+    padding: 40px 5%;
+  }
+
+  .car-grid,
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .car-card img {
+    height: 230px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="logo">SHALLOM <span>MOTORS</span></div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#cars">Cars</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">SHALLOM <span>MOTORS</span></div>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Find the Car That Moves You.</h1>
-      <p>Discover your next car with SHALLOM MOTORS.
-         Quality choices, transparent information, and personal service.</p>
-      <a href="#cars" class="btn">Explore Our Cars</a>
-    </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#cars">Our Cars</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <img
-      src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85"
-      alt="Stylish car"
-    >
-  </section>
-
-  <section class="section" id="cars">
-    <h2>Explore Our Collection</h2>
-    <p class="intro">Find a car that suits your style and budget.</p>
-
-    <div class="notice">
-      Demo listings: the cars, prices and details below are examples.
-      Replace them with verified stock before advertising for sale.
-    </div>
-
-    <div class="search">
-      <input id="searchInput" type="text"
-        placeholder="Search by car name..." aria-label="Search cars">
-
-      <select id="priceFilter" aria-label="Filter by price">
-        <option value="all">All prices</option>
-        <option value="1000000">Under KSh 1 million</option>
-        <option value="2000000">Under KSh 2 million</option>
-        <option value="3000000">Under KSh 3 million</option>
-      </select>
-
-      <button class="btn" onclick="filterCars()">Search</button>
-    </div>
-
-    <div class="cars" id="carList">
-
-      <article class="car-card" data-name="Toyota Axio"
-        data-price="950000">
-        <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=800&q=80"
-          alt="Example Toyota-style sedan" loading="lazy">
-        <div class="car-info">
-          <h3>Toyota Axio</h3>
-          <p class="details">Sedan | Automatic | Petrol</p>
-          <p class="price">KSh 950,000</p>
-          <a class="btn whatsapp" href="#contact"
-            data-car="Toyota Axio">Ask About This Car</a>
-        </div>
-      </article>
-
-      <article class="car-card" data-name="BMW 3 Series"
-        data-price="1850000">
-        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80"
-          alt="BMW-style luxury car" loading="lazy">
-        <div class="car-info">
-          <h3>BMW 3 Series</h3>
-          <p class="details">Luxury sedan | Automatic | Petrol</p>
-          <p class="price">KSh 1,850,000</p>
-          <a class="btn whatsapp" href="#contact"
-            data-car="BMW 3 Series">Ask About This Car</a>
-        </div>
-      </article>
-
-      <article class="car-card" data-name="Mercedes-Benz C-Class"
-        data-price="2750000">
-        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80"
-          alt="Mercedes-Benz-style luxury car" loading="lazy">
-        <div class="car-info">
-          <h3>Mercedes-Benz C-Class</h3>
-          <p class="details">Luxury sedan | Automatic | Petrol</p>
-          <p class="price">KSh 2,750,000</p>
-          <a class="btn whatsapp" href="#contact"
-            data-car="Mercedes-Benz C-Class">Ask About This Car</a>
-        </div>
-      </article>
-
-    </div>
-
-    <p id="noResults" hidden>No cars match your search. Try another filter.</p>
-  </section>
-
-  <section class="section" id="about">
-    <div class="about">
-      <h2>Why Choose SHALLOM MOTORS?</h2>
-      <p>We aim to make finding your next vehicle straightforward.
-         Contact us to ask questions, discuss your budget, and
-         arrange a viewing of an available vehicle.</p>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <h2>Contact SHALLOM MOTORS</h2>
-    <p class="intro">Interested in a vehicle? Get in touch.</p>
-    <p><strong>Phone / WhatsApp:</strong> 0743369044</p>
-    <p><strong>Email:</strong> shallomtoo@gmail.com</p>
-    <br>
-    <a class="btn" href="https://wa.me/254743369044"
-      target="_blank" rel="noopener">Chat with Us on WhatsApp</a>
-    <p class="intro" style="margin-top: 15px;">
-      Please confirm vehicle availability and pricing directly with us.
+<section class="hero" id="home">
+  <div>
+    <h1>Find the Car <span>That Moves You.</span></h1>
+    <p>
+      Welcome to SHALLOM MOTORS. Discover your next car
+      with a great selection, helpful service and easy inquiries.
     </p>
-  </section>
+    <a class="btn" href="#cars">Explore Our Cars</a>
+  </div>
 
-  <footer>
-    <p>&copy; 2026 SHALLOM MOTORS. All rights reserved.</p>
-    <p>Helping you find your next car.</p>
-  </footer>
+  <img
+    src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1100&q=85"
+    alt="Luxury car"
+  >
+</section>
 
-  <script>
-    function filterCars() {
-      const search = document.getElementById("searchInput")
-        .value.toLowerCase().trim();
+<section class="section">
+  <div class="features">
+    <div class="feature">
+      <h3>🚘 Variety of Cars</h3>
+      <p>Explore sedans, SUVs and premium vehicles.</p>
+    </div>
 
-      const maxPrice = document.getElementById("priceFilter").value;
-      const cars = document.querySelectorAll(".car-card");
-      let visible = 0;
+    <div class="feature">
+      <h3>🤝 Personal Service</h3>
+      <p>Contact us to discuss a vehicle that suits you.</p>
+    </div>
 
-      cars.forEach(function(car) {
-        const name = car.dataset.name.toLowerCase();
-        const price = Number(car.dataset.price);
+    <div class="feature">
+      <h3>📱 Easy Inquiries</h3>
+      <p>Chat with us directly through WhatsApp.</p>
+    </div>
+  </div>
+</section>
 
-        const matchesName = name.includes(search);
-        const matchesPrice = maxPrice === "all" ||
-          price < Number(maxPrice);
+<section class="section" id="cars">
+  <div class="section-heading">
+    <h2>Explore Our Collection</h2>
+    <p>Find a car that suits your style and budget.</p>
+  </div>
 
-        if (matchesName && matchesPrice) {
-          car.style.display = "";
-          visible++;
-        } else {
-          car.style.display = "none";
-        }
-      });
+  <div class="search-box">
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search by car name or brand..."
+      oninput="filterCars()"
+    >
 
-      document.getElementById("noResults").hidden = visible !== 0;
+    <select id="priceFilter" onchange="filterCars()">
+      <option value="all">All price ranges</option>
+      <option value="1000000">Under KSh 1 million</option>
+      <option value="2000000">Under KSh 2 million</option>
+      <option value="3000000">Under KSh 3 million</option>
+      <option value="5000000">Under KSh 5 million</option>
+    </select>
+  </div>
+
+  <div class="car-grid" id="carList">
+
+    <article class="car-card" data-name="Toyota Axio" data-price="950000">
+      <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Toyota Axio">
+      <div class="car-info">
+        <h3>Toyota Axio</h3>
+        <p>2018 · Sedan · Automatic</p>
+        <p>Fuel-efficient and comfortable for everyday driving.</p>
+        <div class="price">KSh 950,000</div>
+        <a class="btn" href="https://wa.me/254743369044?text=Hello%20SHALLOM%20MOTORS%2C%20I%20am%20interested%20in%20the%20Toyota%20Axio." target="_blank" rel="noopener">Inquire on WhatsApp</a>
+      </div>
+    </article>
+
+    <article class="car-card" data-name="Toyota Harrier" data-price="1850000">
+      <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80" alt="Toyota Harrier">
+      <div class="car-info">
+        <h3>Toyota Harrier</h3>
+        <p>2017 · SUV · Automatic</p>
+        <p>Stylish SUV with a comfortable interior.</p>
+        <div class="price">KSh 1,850,000</div>
+        <a class="btn" href="https://wa.me/254743369044?text=Hello%20SHALLOM%20MOTORS%2C%20I%20am%20interested%20in%20the%20Toyota%20Harrier." target="_blank" rel="noopener">Inquire on WhatsApp</a>
+      </div>
+    </article>
+
+    <article class="car-card" data-name="Mazda CX-5" data-price="2200000">
+      <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80" alt="Mazda CX-5">
+      <div class="car-info">
+        <h3>Mazda CX-5</h3>
+        <p>2019 · SUV · Automatic</p>
+        <p>Modern styling and a practical family-friendly design.</p>
+        <div class="price">KSh 2,200,000</div>
+        <a class="btn" href="https://wa.me/254743369044?text=Hello%20SHALLOM%20MOTORS%2C%20I%20am%20interested%20in%20the%20Mazda%20CX-5." target="_blank" rel="noopener">Inquire on WhatsApp</a>
+      </div>
+    </article>
+
+    <article class="car-card" data-name="Toyota Premio" data-price="1250000">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Toyota Premio">
+      <div class="car-info">
+        <h3>Toyota Premio</h3>
+        <p>2016 · Sedan · Automatic</p>
+        <p>Elegant design and a comfortable daily drive.</p>
+        <div class="price">KSh 1,250,000</div>
+        <a class="btn" href="https://wa.me/254743369044?text=Hello%20SHALLOM%20MOTORS%2C%20I%20am%20interested%20in%20the%20Toyota%20Premio." target="_blank" rel="noopener">Inquire on WhatsApp</a>
+      </div>
+    </article>
+
+    <article class="car-card" data-name="Subaru Forester" data-price="1750000">
+      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" alt="Subaru Forester">
+      <div class="car-info">
+        <h3>Subaru Forester</h3>
+        <p>2017 · SUV · Automatic</p>
+        <p>A versatile SUV for family trips and everyday use.</p>
+        <div class="price">KSh 1,750,000</div>
+        <a class="btn" href="https://wa.me/254743369044?text=Hello%20SHALLOM%20MOTORS%2C%20I%20am%20interested%20in%20the%20Subaru%20Forester." target="_blank" rel="noopener">Inquire on WhatsApp</a>
+      </div>
+    </article>
+
+    <article class="car-card" data-name="Honda Vezel" data-price="1650000">
+      <img src="https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?auto=format&fit=crop&w=800&q=80" alt="Honda Vezel">
+      <div class="car-info">
+        <h3>Honda Vezel</h3>
+        <p>2018 · Compact SUV · Automatic</p>
+        <p>A modern crossover with a practical cabin.</p>
+        <div class="price">KSh 1,650,000</div>
+        <a class="btn" href="https://wa.me/254743369044?text=Hello%20SHALLOM%20MOTORS%2C%20I%20am%20interested%20in%20the%20Honda%20Vezel." target="_blank" rel="noopener">Inquire on WhatsApp</a>
+      </div>
+    </article>
+
+    <article class="car-card" data-name="Mercedes-Benz C-Class" data-price="3200000">
+      <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Mercedes-Benz C-Class">
+      <div class="car-info">
+        <h3>Mercedes-Benz C-Class</h3>
+        <p>2019 · Luxury Sedan · Automatic</p>
+        <p>Premium styling and a refined driving experience.</p>
+        <div class="price">KSh 3,200,000</div>
+        <a class="btn" href="https://wa.me/254743369044?text=Hello%20SHALLOM%20MOTORS%2C%20I%20am%20interested%20in%20the%20Mercedes-Benz%20C-Class." target="_blank" rel="noopener">Inquire on WhatsApp</a>
+      </div>
+    </article>
+
+    <article class="car-card" data-name="BMW 3 Series" data-price="2850000">
+      <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" alt="BMW 3 Series">
+      <div class="car-info">
+        <h3>BMW 3 Series</h3>
+        <p>2018 · Sedan · Automatic</p>
+        <p>Sporty design with a premium feel.</p>
+        <div class="price">KSh 2,850,000</div>
+        <a class="btn" href="https://wa.me/254743369044?text=Hello%20SHALLOM%20MOTORS%2C%20I%20am%20interested%20in%20the%20BMW%203%20Series." target="_blank" rel="noopener">Inquire on WhatsApp</a>
+      </div>
+    </article>
+
+    <article class="car-card" data-name="Toyota Land Cruiser Prado" data-price="4800000">
+      <img src="https://images.unsplash.com/photo-1519583272095-6433daf26b6e?auto=format&fit=crop&w=800&q=80" alt="Toyota Land Cruiser Prado">
+      <div class="car-info">
+        <h3>Toyota Land Cruiser Prado</h3>
+        <p>2017 · 4x4 SUV · Automatic</p>
+        <p>A spacious SUV for family and adventure.</p>
+        <div class="price">KSh 4,800,000</div>
+        <a class="btn" href="https://wa.me/254743369044?text=Hello%20SHALLOM%20MOTORS%2C%20I%20am%20interested%20in%20the%20Toyota%20Land%20Cruiser%20Prado." target="_blank" rel="noopener">Inquire on WhatsApp</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="about-content">
+    <h2>About SHALLOM MOTORS</h2>
+    <p>
+      SHALLOM MOTORS is a car sales website designed to help customers
+      explore different vehicles and contact us about their preferred cars.
+    </p>
+    <p>
+      Our goal is to make finding your next car simple and convenient.
+      Contact us to ask about vehicle availability, specifications and pricing.
+    </p>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <h2>Ready to Find Your Next Car?</h2>
+  <p>Contact SHALLOM MOTORS today to discuss your preferred vehicle.</p>
+
+  <div class="contact-links">
+    <a class="btn" href="https://wa.me/254743369044" target="_blank" rel="noopener">
+      WhatsApp: 0743369044
+    </a>
+
+    <a class="btn btn-dark" href="mailto:shallomtoo@gmail.com">
+      Email Us
+    </a>
+  </div>
+
+  <p style="margin-top:20px">Email: shallomtoo@gmail.com</p>
+</section>
+
+<footer>
+  <p>© 2026 SHALLOM MOTORS. All rights reserved.</p>
+  <p>Find your dream car with us.</p>
+</footer>
+
+<script>
+function filterCars() {
+  const search = document.getElementById("searchInput")
+    .value.toLowerCase().trim();
+
+  const maxPrice = document.getElementById("priceFilter").value;
+  const cars = document.querySelectorAll(".car-card");
+  let visibleCars = 0;
+
+  cars.forEach(function(car) {
+    const name = car.dataset.name.toLowerCase();
+    const price = Number(car.dataset.price);
+
+    const matchesName = name.includes(search);
+    const matchesPrice =
+      maxPrice === "all" || price < Number(maxPrice);
+
+    if (matchesName && matchesPrice) {
+      car.style.display = "";
+      visibleCars++;
+    } else {
+      car.style.display = "none";
     }
+  });
 
-    document.getElementById("searchInput").addEventListener(
-      "input", filterCars
-    );
+  let message = document.getElementById("noResults");
 
-    document.getElementById("priceFilter").addEventListener(
-      "change", filterCars
-    );
+  if (!message) {
+    message = document.createElement("p");
+    message.id = "noResults";
+    message.className = "no-results";
+    message.textContent = "No cars match your search. Try another name or price range.";
+    document.getElementById("carList").appendChild(message);
+  }
 
-    document.querySelectorAll(".whatsapp").forEach(function(button) {
-      button.href = "https://wa.me/254743369044?text=" +
-        encodeURIComponent(
-          "Hello SHALLOM MOTORS, I am interested in the " +
-          button.dataset.car + ". Is it available?"
-        );
-
-      button.target = "_blank";
-      button.rel = "noopener";
-    });
-  </script>
+  message.style.display = visibleCars === 0 ? "block" : "none";
+}
+</script>
 
 </body>
 </html>
